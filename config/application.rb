@@ -20,16 +20,28 @@ require "sprockets/railtie"
 Bundler.require(*Rails.groups)
 
 module WonderfulEditer
-  class Application < Rails::Application
-    # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 6.0
+  # Initialize configuration defaults for originally generated Rails version.
+  config.load_defaults 6.0
 
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration can go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded after loading
-    # the framework and any gems in your application.
+  # Settings in config/environments/* take precedence over those specified here.
+  # Application configuration can go into files in config/initializers
+  # -- all .rb files in that directory are automatically loaded after loading
+  # the framework and any gems in your application.
 
-    # Don't generate system test files.
-    config.generators.system_tests = nil
+  # Don't generate system test files.
+  config.generators.system_tests = nil
+  config.generators do |g|
+    g.template_engine false
+    g.javascripts false
+    g.stylesheets false
+    g.helper false
+    g.test_framework :rspec,
+                     view_specs: false,
+                     routing_specs: false,
+                     helper_specs: false,
+                     controller_specs: false,
+                     request_specs: true
   end
+
+  config.api_only = true
 end
