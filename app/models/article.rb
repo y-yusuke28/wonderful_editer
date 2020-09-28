@@ -18,4 +18,7 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Article < ApplicationRecord
+  has_many :article_likes, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  belongs_to :user
 end
