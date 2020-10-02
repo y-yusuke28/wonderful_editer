@@ -18,7 +18,3 @@
 #  fk_rails_...  (article_id => articles.id)
 #  fk_rails_...  (user_id => users.id)
 #
-FactoryBot.define do
-  factory :article_like do
-  end
-end
