@@ -21,6 +21,11 @@
 #
 require "rails_helper"
 
-# RSpec.describe Comment, type: :model do
-#   pending "add some examples to (or delete) #{__FILE__}"
-# end
+RSpec.describe Comment, type: :model do
+  context "内容が入力されている場合" do
+    let(:comment) {build(:comment)}
+    it "コメントできる" do
+      expect(comment).to be_valid
+    end
+  end
+end

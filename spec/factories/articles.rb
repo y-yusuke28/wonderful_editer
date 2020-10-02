@@ -19,5 +19,16 @@
 #
 FactoryBot.define do
   factory :article do
+    title { Faker::Lorem.word }
+    body { Faker::Lorem.sentences }
+    user
+
+    trait :with_comment do
+      comment
+    end
+
+    trait :with_article_like do
+      article_like
+    end
   end
 end
